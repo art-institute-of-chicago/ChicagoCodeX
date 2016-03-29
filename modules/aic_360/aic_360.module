@@ -80,7 +80,7 @@ function aic_360_figure_html_360_slider ($node) {
 	return $template;
 	}
 	
-function aic_360_osci_tk_webapp_custom_alter(&$js, &$css) {
+function aic_360_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
 	//add required javascript and css files
 	global $base_url; 
     $js[] = "$base_url/frontend/js/oscitk/views/MultiColumnFigure360View.js";

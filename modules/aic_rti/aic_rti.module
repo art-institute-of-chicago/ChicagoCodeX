@@ -59,7 +59,7 @@ function aic_rti_osci_tk_figure_aspect($figure){
 	return 0;
 }
 	
-function  aic_rti_osci_tk_webapp_custom_alter(&$js, &$css) {
+function  aic_rti_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
 	global $base_url; 	
 	$js[] = "$base_url/frontend/js/oscitk/views/MultiColumnFigureRTIView.js";
 	$js[] .= "$base_url/sites/all/modules/aic_rti/spidergl/spidergl.js";

@@ -372,7 +372,7 @@ function aic_custom_ncx_generate_navmap(&$vars) {
     return $output;
 }
 
-function aic_custom_osci_tk_webapp_custom_alter(&$js, &$css) {
+function aic_custom_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
     global $base_url;
 
     $preprocessCss = variable_get("preprocess_css", 1);
@@ -399,6 +399,13 @@ function aic_custom_osci_tk_webapp_custom_alter(&$js, &$css) {
     $css[] = "{$cssBasePath}frontend/css/notes.css";
     $css[] = "{$cssBasePath}frontend/css/glossary.css";
     $css[] = "{$cssBasePath}frontend/css/search.css";
+	
+	//get path of local files folder if there is a custom stylesheet
+	if ($node->field_stylesheet['und'][0]['filename']) {
+		$pathToFiles = variable_get('file_public_path', conf_path() . '/files') . '/styles/';
+		$pathToFiles = _osci_tk_epub_asset_process_uri($pathToFiles, $args['item']['export']);
+		$css[] = $pathToFiles . $node->field_stylesheet['und'][0]['filename'];
+	}
 
     if ($preprocessJs) {
         $jsBasePath = DRUPAL_ROOT . '/';
