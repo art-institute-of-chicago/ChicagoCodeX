@@ -67,10 +67,10 @@ function createRtiViewer(fs) {
 	toolbar.style.width = "50px";
 	toolbar.style.height = "100%";
 	toolbar.style.visibility = "hidden";
-	toolbar.innerHTML = '<button class = "toolbarButton" id = "zoomIn"></button><button class = "toolbarButton" id = "zoomOut"></button><button class = "toolbarButton" id = "light"></button><button class = "toolbarButton" id = "fullscreen"></button><button class = "toolbarButton" id = "help"></button>';
+	toolbar.innerHTML = '<button class = "toolbarButton" id = "zoomIn"></button><button class = "toolbarButton" id = "zoomOut"></button><button class = "toolbarButton" id = "light"></button><button class = "toolbarButton" id = "fullscreen"></button><button class = "toolbarButton" id = "help"></button><button class = "toolbarButton" id = "reset"></button>';
 	canvasNode.append(toolbar);
 	
-	//help button
+	//help screen
 	var divHelp = document.createElement("div");
 	divHelp.id = idDiv + "_guide";
 	divHelp.style.width = "100%";
@@ -90,6 +90,7 @@ function createRtiViewer(fs) {
 	thisRTI.lightButton = thisRTI.find( "#"+idDiv + "_div #light" );
 	thisRTI.fullscreenButton = thisRTI.find("#"+idDiv + "_div #fullscreen");
 	thisRTI.helpButton = thisRTI.find( "#"+idDiv + "_div #help" );
+	thisRTI.resetButton = thisRTI.find( "#"+idDiv + "_div #reset" );
 	thisRTI.helpScreen = thisRTI.find( "#"+idDiv + "_guide" );
 	thisRTI.canvascursor = thisRTI.find( "canvas" );
 	
@@ -140,6 +141,7 @@ function createRtiViewer(fs) {
 		$( this ).button( "option", options );
 	});
 	
+	//help button
 	thisRTI.helpButton.button({
       icons: {
         primary: "helpIcon toolbarIcon"
@@ -149,6 +151,25 @@ function createRtiViewer(fs) {
     }).click(function(){thisRTI.helpScreen.show();});
 	
 	thisRTI.helpScreen.click(function(){thisRTI.helpScreen.hide();});
+	
+	//reset button
+	thisRTI.resetButton.button({
+      icons: {
+        primary: "resetIcon toolbarIcon"
+      },
+	  text: false,
+      label: "Reset"
+    }).click(function(){
+		var thisMultiRes = multiResRTI;
+		//reset light
+		thisMultiRes._setLightDir(thisMultiRes.viewerdx, thisMultiRes.viewerdy);
+		//resize and center
+		thisMultiRes.translation[0] = 0.0;
+		thisMultiRes.translation[1] = 0.0;
+		thisMultiRes.mat = sglIdentityM4();
+		thisMultiRes.flipMatrix = sglIdentityM4();
+		return thisMultiRes.flipMatrix;
+		});
 	
 	//for fullscreen
 	var windowWidth = $(window).width() - 200;
@@ -552,6 +573,7 @@ MultiRes.prototype = {
  
 	mouseDown : function(gl, button, x, y)
 	{
+		
 		if (this.animating)
 			return false;
 		if (button == 0)

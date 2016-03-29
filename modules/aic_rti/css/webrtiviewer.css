@@ -38,9 +38,13 @@
 		border-bottom: 1px solid #888;
 	}
 	
-	#light, #help, .toolbarIcon
-	{
+	#light .toolbarIcon, #help .toolbarIcon, #fullscreen .toolbarIcon, #reset .toolbarIcon {
+		border-bottom: 0;
 		border-right: 1px solid #888;
+	}
+	
+	#fullscreen .toolbarIcon {
+		border-right: 0;
 	}
 	
 	.zoomInIcon
@@ -69,6 +73,11 @@
 		background-image: url(icons/help.png) !important;
 	}
 	
+	.resetIcon
+	{
+		background-image: url(/sites/all/OSCI-Toolkit-Frontend/img/icon-reset.png) !important;
+	}
+	
 	.fullIcon
 	{
 		background-image: url(/sites/all/OSCI-Toolkit-Frontend/img/icon-fullscreen.png) !important;
@@ -87,13 +96,19 @@
 	#help {
 		position: absolute;
     	bottom: 5px;
-    	right: 48px;
+    	right: 146px;
 	}
 	
 	#light {
 		position: absolute;
     	bottom: 5px;
     	right: 98px;
+	}
+	
+	#reset {
+		position: absolute;
+    	bottom: 5px;
+    	right: 48px;
 	}
 	
 	
