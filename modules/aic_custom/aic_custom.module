@@ -399,6 +399,7 @@ function aic_custom_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
     $css[] = "{$cssBasePath}frontend/css/notes.css";
     $css[] = "{$cssBasePath}frontend/css/glossary.css";
     $css[] = "{$cssBasePath}frontend/css/search.css";
+	$css[] = "{$cssBasePath}sites/all/modules/aic_360/css/threesixty.css";
 	
 	//get path of local files folder if there is a custom stylesheet
 	if ($node->field_stylesheet['und'][0]['filename']) {
@@ -436,6 +437,9 @@ function aic_custom_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/CitationView.js";
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/GlossaryTooltipView.js";
 	$js[] = "{$jsBasePath}frontend/js/d3.min.js";
+	$js[] = "{$jsBasePath}frontend/js/oscitk/views/MultiColumnFigure360View.js";
+	$js[] .= "{$jsBasePath}sites/all/modules/aic_360/js/threesixty.js";
+	$js[] .= "{$jsBasePath}sites/all/modules/aic_360/js/360render.js"; 
 }
 
 function aic_custom_figure_window($section_nid, $figIndex=null) {

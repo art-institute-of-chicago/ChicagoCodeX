@@ -22,7 +22,7 @@ function aic_360_initialize(threesixtyCode) {
 			progress: '.spinner', // selector to show the loading progress
 			imagePath: src, // path of the image assets
 			filePrefix: filePrefix360, // file prefix if any
-			ext: '.png', // extention for the assets
+			ext: '.jpg', // extention for the assets
 			height: image360Height, //image height
 			width: image360Width, //image width
 			navigation: true,

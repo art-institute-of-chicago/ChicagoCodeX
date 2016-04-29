@@ -79,7 +79,7 @@ function aic_360_figure_html_360_slider ($node) {
 	<script>aic_360_initialize();</script>';
 	return $template;
 	}
-	
+/*temporary move to aic_custom.module	
 function aic_360_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
 	//add required javascript and css files
 	global $base_url; 
@@ -89,5 +89,5 @@ function aic_360_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
 	
 	$css[] = "$base_url/sites/all/modules/aic_360/css/threesixty.css";   
 }
-
+*/
 
