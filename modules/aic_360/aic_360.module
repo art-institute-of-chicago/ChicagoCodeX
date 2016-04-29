@@ -46,7 +46,7 @@ function aic_360_osci_tk_figure_content($args) {
 	  $isResponsive = 'true';
 	  //html for 360
 	  $threesixtyhtml = 
-	  '<div class = "threesixty" data-360-src = "'.$src.'" data-360-total = "'.$totalImages.'" data-360-start = "'.$startFrame.'" data-360-end = "'.$endFrame.'" data-360-width = "'.$image360Width.'" data-360-height = "'.$image360Height.'" data-360-prefix = "'.$filePrefix360.'" data-360-responsive = "'.$isResponsive.'"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div>
+	  '<div class = "threesixty" data-360-src = "'.$src.'" data-360-total = "'.$totalImages.'" data-360-start = "'.$startFrame.'" data-360-end = "'.$endFrame.'" data-360-width = "'.$image360Width.'" data-360-height = "'.$image360Height.'" data-360-prefix = "'.$filePrefix360.'" data-360-responsive = "'.$isResponsive.'"><div class="spinner"><span>Loading</span></div><ol class="threesixty_images"></ol></div>
 	  <script>
 	  $(".threesixty").each(function() {
 		  if($(this).hasClass("initialized")) {return;}
@@ -75,7 +75,7 @@ function aic_360_figure_html_360_slider ($node) {
 	$image360Height = $node->field_height_360images['und'][0]['value'];
 	$filePrefix360 = $node->field_image_file_prefix['und'][0]['value'];
 	$isResponsive = 'false';
-	$template = '<div class = "threesixty figurewindow" data-360-src = "'.$src.'" data-360-total = "'.$totalImages.'" data-360-start = "'.$startFrame.'" data-360-end = "'.$endFrame.'" data-360-width = "'.$image360Width.'" data-360-height = "'.$image360Height.'" data-360-prefix = "'.$filePrefix360.'" data-360-responsive = "'.$isResponsive.'"><div class="spinner"><span>0%</span></div><ol class="threesixty_images"></ol></div>
+	$template = '<div class = "threesixty figurewindow" data-360-src = "'.$src.'" data-360-total = "'.$totalImages.'" data-360-start = "'.$startFrame.'" data-360-end = "'.$endFrame.'" data-360-width = "'.$image360Width.'" data-360-height = "'.$image360Height.'" data-360-prefix = "'.$filePrefix360.'" data-360-responsive = "'.$isResponsive.'"><div class="spinner"><span>Loading</span></div><ol class="threesixty_images"></ol></div>
 	<script>aic_360_initialize();</script>';
 	return $template;
 	}
