@@ -85,3 +85,11 @@
 	border:1px solid #f2f2f2;
 	border-radius:4px!important;
 }
+
+.qtip { max-width: none !important; }
+
+.gauguin, .gauguin .qtip-content {
+	border-radius: 0;
+	padding: 0;
+	border-color: #ffffff;	
+}
