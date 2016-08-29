@@ -585,7 +585,7 @@ function aic_custom_osci_tk_citation_alter(&$citation, $section, $publication) {
     );
 
     if (array_key_exists($citation['field'], $titleFieldMap)) {
-        $citation['title'] = $citation['title'] . " : " . $titleFieldMap[$citation['field']];
+        $citation['title'] = $citation['title'] . ": " . $titleFieldMap[$citation['field']];
     }
 
     $creatorField = null;
