@@ -98,14 +98,16 @@ OsciTk.views.Figures = OsciTk.views.BottomDrawerView.extend({
         if (maxW && maxH) {
             // push this into the stack to increase chance of image being loaded
             $('#figures-list .figure-preview').each(function(i, elem) {
-                that.resizeFigurePreview(elem, maxW, maxH);
+                //that.resizeFigurePreview(elem, maxW, maxH);
             });
         }
 
         this.setDrawerLastPosition();
         this.setDrawerHandlePosition();
     },
-    resizeFigurePreview: function(elem, maxW, maxH) {
+    /* 
+	// Taking this function out, doesn't seem to be needed and causes stretched/incorrect sized images in FF - TS/12.28.2016
+	resizeFigurePreview: function(elem, maxW, maxH) {
         var that = this;
         if (elem.width !== 0 && elem.height !== 0) {
             if (elem.width < maxW || elem.height < maxH) {
@@ -122,7 +124,7 @@ OsciTk.views.Figures = OsciTk.views.BottomDrawerView.extend({
                 that.resizeFigurePreview(elem, maxW, maxH);
             }, 500);
         }
-    },
+    },*/
     onFigurePreviewClicked: function(event_data) {
         var figId = $(event_data.target).parents('figure').attr('data-figure-id');
         var figureView = app.views.figures[figId];
