@@ -571,12 +571,25 @@ function aic_custom_osci_tk_citation_alter(&$citation, $section, $publication) {
         'technical_report' => 'field_author_technical_report',
 		'body' => 'field_authors_body',
     );
-
+ 
+ 	//Check for custom titles, otherwise use standard
+ 	if (is_null($section->field_title_curatorial_entry['und'][0]['value'])) {
+		$section_curatorialentry_text = 'Curatorial Entry';
+	} else {
+		$section_curatorialentry_text = $section->field_title_curatorial_entry['und'][0]['value'];
+	}
+ 
+ 	if (is_null($section->field_title_technical_report['und'][0]['value'])) {
+		$section_technicalreport_text = 'Technical Report';
+	} else {
+		$section_technicalreport_text = $section->field_title_technical_report['und'][0]['value'];
+	}
+	
     $titleFieldMap = array(
         'tombstone' => 'Tombstone',
-        'curatorial_entry' => $section->field_title_curatorial_entry['und'][0]['value'],
+        'curatorial_entry' => $section_curatorialentry_text,
 		'curatorial_entry2' => $section->field_title_curatorial_entry2['und'][0]['value'],
-        'technical_report' => $section->field_title_technical_report['und'][0]['value'],
+        'technical_report' => $section_technicalreport_text,
         'provenance' => 'Provenance',
         'exhibitions' => 'Exhibition History',
         'references' => 'Selected References',
