@@ -28,6 +28,13 @@ function aic_custom_menu() {
         'type'              => MENU_CALLBACK
     );
 	
+	$items['info'] = array(
+		'title'             => 'How To Use This Catalogue',
+        'page callback'     => 'aic_custom_info',
+        'access arguments'  => array('access content'),
+        'type'              => MENU_CALLBACK
+    );
+	
 	$items['reader/%/nav'] = array(
     	'title'             => 'OSCI Toolkit Web-App Nav',
 		'page callback'     => 'aic_custom_preview_nav',
@@ -112,6 +119,9 @@ function aic_custom_theme() {
         ),
 		'aic_custom_user_registered' => array(
 			'template'  => 'templates/aic_custom_user_registered',
+		),
+		'aic_custom_info' => array(
+			'template'  => 'templates/aic_custom_info_view',
 		),
     );
 }
@@ -425,6 +435,7 @@ function aic_custom_osci_tk_webapp_custom_alter(&$node, &$js, &$css) {
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/TextEnlargeView.js";
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/TextReduceView.js";
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/PrintView.js";
+	$js[] = "{$jsBasePath}frontend/js/oscitk/views/InfoView.js";
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/AccountView.js";
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/SearchView.js";
     $js[] = "{$jsBasePath}frontend/js/oscitk/views/TocView.js";
@@ -498,6 +509,13 @@ function aic_custom_user_registered() {
 		print(theme('aic_custom_user_registered'));
         drupal_exit();
 }
+
+//info page on how to use the catalogue
+function aic_custom_info() {	
+		print(theme('aic_custom_info'));
+        drupal_exit();
+}
+
 
 function aic_custom_osci_tk_figure_number_template_alter(&$replace, $data) {
     $sectionNode = node_load($data['sectionNid']);

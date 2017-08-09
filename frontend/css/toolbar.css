@@ -67,6 +67,12 @@ div.Account-toolbar-item {
 	width: 26px;
 	text-indent: 9999px;
 }
+div.Info-toolbar-item {
+	background: url('../img/info-icon.png') no-repeat center center;
+	height: 26px;
+	width: 26px;
+	text-indent: 9999px;
+}
 div.Search-toolbar-item {
 	background: url('../img/search-field.png') no-repeat center center;
 	height: 26px;
