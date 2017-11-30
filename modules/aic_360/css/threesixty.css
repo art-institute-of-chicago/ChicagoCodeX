@@ -59,16 +59,16 @@
   text-indent: -99999px;
 }
 .threesixty .nav_bar a.nav_bar_play {
-  background-position: 0 0 !important;
+  background-position: -1px -3px !important;
 }
 .threesixty .nav_bar a.nav_bar_previous {
-  background-position: 0 -73px !important;
+  background-position: -1px -76px !important;
 }
 .threesixty .nav_bar a.nav_bar_stop {
-  background-position: 0 -37px !important;
+  background-position: -1px -40px !important;
 }
 .threesixty .nav_bar a.nav_bar_next {
-  background-position: -1px -104px !important;
+  background-position: 0px -106px !important;
 }
 /* html */
 .threesixty:-webkit-full-screen {
