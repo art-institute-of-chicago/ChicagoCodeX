@@ -662,8 +662,8 @@ function aic_custom_preprocess_aic_custom_glossary_document(&$vars) {
                 'term_id' => $leaf->tid,
                 'definition' => check_markup($leaf->description, $leaf->format),
                 'name' => $leaf->name,
-                'display_name' => isset($leaf->field_display_name['und'][0]['value']) ?
-                    $leaf->field_display_name['und'][0]['value'] : $leaf->name
+                'display_name' => _aic_custom_glossary_filter(isset($leaf->field_display_name['und'][0]['value']) ?
+                    $leaf->field_display_name['und'][0]['value'] : $leaf->name, null, null)
             );
         }
     }
